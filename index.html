@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dar Qurtuba | Neutral Sovereign Digital Sanctuary</title>
+    <style>
+        :root {
+            --royal-blue: #001d3d; /* لون شعارك الملكي الداكن */
+            --deep-navy: #000814;  /* خلفية داكنة فخمة للموقع */
+            --accent-gold: #daa520; /* لون شعارك الذهبي الفاخر */
+            --pure-white: #ffffff;
+            --soft-gray: #f8fafc;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--soft-gray);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* قـسـم الـهـيـرو الرئـيـسـي (البداية الفخمة) */
+        .hero-section {
+            background: linear-gradient(135deg, var(--royal-blue) 0%, var(--deep-navy) 100%);
+            color: var(--pure-white);
+            padding: 5rem 1rem;
+            text-align: center;
+            border-bottom: 5px solid var(--accent-gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* صندوق الشعار المحسن */
+        .logo-container {
+            width: 190px;
+            height: auto;
+            margin: 0 auto 2rem auto;
+            background: var(--pure-white);
+            padding: 12px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            border: 2px solid var(--accent-gold);
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container:hover {
+            transform: scale(1.03);
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .hero-section h1 {
+            margin: 0;
+            font-size: 3.2rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-section .tagline {
+            margin: 0.75rem 0 0 0;
+            color: var(--accent-gold);
+            font-size: 1.4rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-section .subtitle {
+            margin: 1rem auto 0 auto;
+            color: #94a3b8;
+            font-size: 1.1rem;
+            max-width: 700px;
+            font-style: italic;
+        }
+
+        /* شـريـط الـتـنـقـل الـسـيـادي */
+        nav {
+            background-color: #0f172a;
+            padding: 1rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+
+        nav a {
+            color: #94a3b8;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s, border-bottom 0.3s;
+            padding-bottom: 5px;
+        }
+
+        nav a:hover {
+            color: var(--accent-gold);
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* بطاقات الأقسام المحدثة */
+        .main-section {
+            background: var(--pure-white);
+            border-radius: 14px;
+            padding: 3rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            margin-bottom: 3rem;
+            border-left: 6px solid var(--royal-blue);
+        }
+
+        .gold-border {
+            border-left-color: var(--accent-gold);
+        }
+
+        h2 {
+            color: var(--royal-blue);
+            font-size: 2rem;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.75rem;
+        }
+
+        h3 {
+            color: var(--royal-blue);
+            font-size: 1.3rem;
+            margin-top: 1.75rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #334155;
+            text-align: justify;
+        }
+
+        /* شبكة توزيع المعسكرات تكنولوجياً */
+        .bloc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .bloc-grid { grid-template-columns: 1fr; }
+        }
+
+        .bloc-card {
+            background: var(--soft-gray);
+            padding: 2rem;
+            border-radius: 10px;
+            border-top: 4px solid var(--royal-blue);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+        }
+
+        .west-side { border-top-color: #2563eb; }
+        .east-side { border-top-color: #dc2626; }
+
+        .bullet-list {
+            padding-left: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .bullet-list li {
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+            color: #475569;
+        }
+
+        /* تصميم قسم المرحلة صفر التجريبية الخضراء */
+        .sandbox-box {
+            background: #f0f7ff;
+            border: 2px dashed var(--royal-blue);
+            border-radius: 14px;
+            padding: 2.5rem;
+        }
+
+        .badge {
+            background-color: var(--accent-gold);
+            color: var(--royal-blue);
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        /* صندوق الاستدعاء الدبلوماسي الحاسم */
+        .diplomatic-gate {
+            background: linear-gradient(135deg, #0f172a 0%, var(--royal-blue) 100%);
+            color: var(--pure-white);
+            padding: 3.5rem 2rem;
+            border-radius: 14px;
+            text-align: center;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .diplomatic-gate h3 {
+            color: var(--accent-gold);
+            font-size: 1.8rem;
+            margin-top: 0;
+        }
+
+        .diplomatic-gate p {
+            color: #cbd5e1;
+            max-width: 650px;
+            margin: 1rem auto 2rem auto;
+            text-align: center;
+        }
+
+        .action-button {
+            display: inline-block;
+            background-color: var(--accent-gold);
+            color: var(--royal-blue);
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 14px rgba(218, 165, 32, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .action-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(218, 165, 32, 0.6);
+        }
+
+        footer {
+            text-align: center;
+            padding: 3.5rem 1rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            background-color: #e2e8f0;
+            margin-top: 5rem;
+            border-top: 2px solid #cbd5e1;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- قسم واجهة الهيرو الرئيسية الفخمة -->
+    <div class="hero-section">
+        <div class="logo-container">
+            <!-- الشعار الفخم logo.png سيتم تحميله هنا تلقائياً -->
+            <img src="logo.png" alt="Dar Qurtuba Sovereign Logo">
+        </div>
+        <h1>DAR QURTUBA INITIATIVE</h1>
+        <div class="tagline">أساس توافقنا & الملاذ الرقمي والسيادي المحايد</div>
+        <div class="subtitle">The Geopolitical Clearinghouse and Immutable Data Sanctuary of South Arabia</div>
+    </div>
+
+    <!-- شريط التنقل السريع -->
+    <nav>
+        <a href="#geopolitics">Geopolitical Axis</a>
+        <a href="#neutrality">Sovereign Neutrality</a>
+        <a href="#technical">The Bilateral Grid</a>
+        <a href="#sandbox">Phase Zero Sandbox</a>
+        <a href="#diplomacy">Diplomatic Terminal</a>
+    </nav>
+
+    <div class="container">
+        
+        <!-- القسم 1: المحور الجيوسياسي وعقيدة الحراس الأحرار -->
+        <div class="main-section" id="geopolitics">
+            <h2>1. The Geopolitical Axis & Oceanic Command</h2>
+            <p>Positioned outside the volatile, micro-managed corridors of closed gulf waters, <strong>Dar Qurtuba</strong> commands the deep open ocean front of South Arabia (Aden Operational Hub). Bypassing restricted marine blockades such as the Strait of Hormuz, the initiative provides direct, unhindered access to international submarine cable trunks and critical deep-sea fiber routing across global naval vectors.</p>
+            <h3>The Existential Guardian Doctrine</h3>
+            <p>Unlike regional commercial models operated by temporary mercenary entities, Dar Qurtuba relies on an absolute socio-cultural foundation: <strong>The Existential Guardian Doctrine</strong>. The native populace safeguards the computing arrays and global energy lines not out of economic convenience, but as an absolute requirement for communal survival and immunity from reliance. They protect the infrastructure because it represents their cultural sovereignty and socio-economic shield.</p>
+        </div>
+
+        <!-- القسم 2: الحصانة السويسرية والمقاصة متعددة العملات -->
+        <div class="main-section gold-border" id="neutrality">
+            <h2>2. The Neutrality Protocol & Sovereign Assets Safeguard</h2>
+            <p>Engineered directly from the historic Swiss model for trans-national asset preservation, Dar Qurtuba serves as an air-gapped, multi-bloc clearinghouse. Operating outside unilateral regulatory weaponization, asset freezing mandates, or proxy financial sanctions, it guarantees immutable security for international capital and data infrastructure nodes.</p>
+            <h3>Sovereign Multi-Currency Settlement</h3>
