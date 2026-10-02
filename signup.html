@@ -1,1 +1,334 @@
 
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="إنشاء حساب جديد في دار صوفيا">
+
+    <title>إنشاء حساب | دار صوفيا</title>
+
+    <style>
+        :root {
+            --navy: #071a2b;
+            --blue: #0b3a5b;
+            --gold: #d9a441;
+            --gold-light: #f0c76a;
+            --white: #ffffff;
+            --bg: #f5f7fa;
+            --text: #17212b;
+            --muted: #64748b;
+            --border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family:
+                "Segoe UI",
+                Tahoma,
+                Arial,
+                sans-serif;
+            background:
+                linear-gradient(
+                    135deg,
+                    #071a2b,
+                    #0b3a5b
+                );
+            min-height: 100vh;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+        }
+
+        .signup-container {
+            width: min(460px, 100%);
+        }
+
+        .brand {
+            text-align: center;
+            color: white;
+            margin-bottom: 22px;
+        }
+
+        .brand-mark {
+            width: 55px;
+            height: 55px;
+            border: 2px solid var(--gold);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            color: var(--gold-light);
+            font-size: 1.5rem;
+            font-weight: 900;
+            background: rgba(255,255,255,.05);
+        }
+
+        .brand h1 {
+            font-size: 1.5rem;
+            margin-bottom: 3px;
+        }
+
+        .brand p {
+            color: #aebdca;
+            font-size: .85rem;
+        }
+
+        .signup-card {
+            background: white;
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 20px 50px rgba(0,0,0,.2);
+        }
+
+        .signup-card h2 {
+            color: var(--navy);
+            margin-bottom: 8px;
+            font-size: 1.5rem;
+        }
+
+        .intro {
+            color: var(--muted);
+            font-size: .9rem;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 17px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            color: var(--navy);
+            font-weight: 700;
+            font-size: .9rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            font-family: inherit;
+            font-size: .95rem;
+            outline: none;
+            transition: .2s;
+        }
+
+        input:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(217,164,65,.12);
+        }
+
+        .terms {
+            color: var(--muted);
+            font-size: .78rem;
+            line-height: 1.6;
+            margin: 18px 0;
+        }
+
+        .terms a {
+            color: var(--blue);
+            font-weight: 700;
+        }
+
+        .btn {
+            width: 100%;
+            border: 0;
+            border-radius: 9px;
+            padding: 13px;
+            background: var(--gold);
+            color: var(--navy);
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: .2s;
+        }
+
+        .btn:hover {
+            background: var(--gold-light);
+            transform: translateY(-1px);
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+            color: var(--muted);
+            font-size: .88rem;
+        }
+
+        .login-link a {
+            color: var(--blue);
+            font-weight: 800;
+        }
+
+        .back-home {
+            display: block;
+            text-align: center;
+            margin-top: 18px;
+            color: #c6d3de;
+            font-size: .85rem;
+        }
+
+        .back-home:hover {
+            color: var(--gold-light);
+        }
+
+        @media (max-width: 500px) {
+
+            body {
+                padding: 18px;
+            }
+
+            .signup-card {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="signup-container">
+
+    <div class="brand">
+
+        <div class="brand-mark">ص</div>
+
+        <h1>دار صوفيا</h1>
+
+        <p>Dar Sofia</p>
+
+    </div>
+
+
+    <div class="signup-card">
+
+        <h2>إنشاء حساب</h2>
+
+        <p class="intro">
+            أنشئ حسابك وابدأ رحلتك الرقمية مع دار صوفيا.
+        </p>
+
+
+        <form>
+
+            <div class="form-group">
+
+                <label for="name">
+                    الاسم
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="اكتب اسمك"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="email">
+                    البريد الإلكتروني
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="example@email.com"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="password">
+                    كلمة المرور
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="أنشئ كلمة مرور"
+                    minlength="6"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="confirm-password">
+                    تأكيد كلمة المرور
+                </label>
+
+                <input
+                    type="password"
+                    id="confirm-password"
+                    name="confirm-password"
+                    placeholder="أعد كتابة كلمة المرور"
+                    minlength="6"
+                    required
+                >
+
+            </div>
+
+
+            <p class="terms">
+                بإنشاء الحساب، أنت توافق على
+                <a href="#">الشروط</a>
+                و
+                <a href="#">سياسة الخصوصية</a>.
+            </p>
+
+
+            <button
+                type="submit"
+                class="btn">
+                إنشاء الحساب
+            </button>
+
+        </form>
+
+
+        <div class="login-link">
+
+            لديك حساب بالفعل؟
+
+            <a href="#">
+                تسجيل الدخول
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <a href="index.html" class="back-home">
+        ← العودة إلى الصفحة الرئيسية
+    </a>
+
+</div>
+
+</body>
+</html>
