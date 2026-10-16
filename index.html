@@ -1,435 +1,186 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dar Sofia | Neutral Sovereign Digital Sanctuary</title>
+    <title>إنشاء حساب جديد - دار صوفيا | Dar Sofia</title>
     <style>
         :root {
-            --royal-blue: #001d3d; /* لون شعارك الملكي الداكن */
-            --deep-navy: #000814;  /* خلفية داكنة فخمة للموقع */
-            --accent-gold: #daa520; /* لون شعارك الذهبي الفاخر */
-            --pure-white: #ffffff;
-            --soft-gray: #f8fafc;
-            --text-dark: #1e293b;
-            --text-muted: #64748b;
+            --primary-color: #0f172a;
+            --accent-color: #2563eb;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-color: #334155;
+            --border-color: #cbd5e1;
         }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            background-color: var(--soft-gray);
-            color: var(--text-dark);
-            line-height: 1.6;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
-        /* قـسـم الـهـيـرو الرئـيـسـي (البداية الفخمة) */
-        .hero-section {
-            background: linear-gradient(135deg, var(--royal-blue) 0%, var(--deep-navy) 100%);
-            color: var(--pure-white);
-            padding: 5rem 1rem;
-            text-align: center;
-            border-bottom: 5px solid var(--accent-gold);
-            position: relative;
-            overflow: hidden;
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
         }
 
-        /* صندوق الشعار المحسن */
-        .logo-container {
-            width: 190px;
-            height: auto;
-            margin: 0 auto 2rem auto;
-            background: var(--pure-white);
-            padding: 12px;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-            border: 2px solid var(--accent-gold);
-            transition: transform 0.3s ease;
-        }
-
-        .logo-container:hover {
-            transform: scale(1.03);
-        }
-
-        .logo-container img {
+        .register-container {
+            background-color: var(--card-bg);
             width: 100%;
-            height: auto;
+            max-width: 450px;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        .logo-area {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo-area div:first-child {
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent-color);
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 12px;
+            margin: 0 auto 10px auto;
+        }
+
+        .logo-area h1 {
+            font-size: 22px;
+            color: var(--primary-color);
+        }
+
+        .logo-area p {
+            font-size: 14px;
+            color: #64748b;
+            margin-top: 5px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
             display: block;
-        }
-
-        .hero-section h1 {
-            margin: 0;
-            font-size: 3.2rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .hero-section .tagline {
-            margin: 0.75rem 0 0 0;
-            color: var(--accent-gold);
-            font-size: 1.4rem;
+            font-size: 14px;
             font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            margin-bottom: 8px;
+            color: var(--primary-color);
         }
 
-        .hero-section .subtitle {
-            margin: 1rem auto 0 auto;
-            color: #94a3b8;
-            font-size: 1.1rem;
-            max-width: 700px;
-            font-style: italic;
-        }
-
-        /* شـريـط الـتـنـقـل الـسـيـادي */
-        nav {
-            background-color: #0f172a;
-            padding: 1rem;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-        }
-
-        nav a {
-            color: #94a3b8;
-            text-decoration: none;
-            margin: 0 1.5rem;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: color 0.3s, border-bottom 0.3s;
-            padding-bottom: 5px;
-        }
-
-        nav a:hover {
-            color: var(--accent-gold);
-            border-bottom: 2px solid var(--accent-gold);
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 3rem auto;
-            padding: 0 1.5rem;
-        }
-
-        /* بطاقات الأقسام المحدثة */
-        .main-section {
-            background: var(--pure-white);
-            border-radius: 14px;
-            padding: 3rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
-            margin-bottom: 3rem;
-            border-left: 6px solid var(--royal-blue);
-        }
-
-        .gold-border {
-            border-left-color: var(--accent-gold);
-        }
-
-        h2 {
-            color: var(--royal-blue);
-            font-size: 2rem;
-            margin-top: 0;
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 0.75rem;
-        }
-
-        h3 {
-            color: var(--royal-blue);
-            font-size: 1.3rem;
-            margin-top: 1.75rem;
-        }
-
-        p {
-            font-size: 1.1rem;
-            color: #334155;
-            text-align: justify;
-        }
-
-        /* شبكة توزيع المعسكرات تكنولوجياً */
-        .bloc-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        @media (max-width: 768px) {
-            .bloc-grid { grid-template-columns: 1fr; }
-        }
-
-        .bloc-card {
-            background: var(--soft-gray);
-            padding: 2rem;
-            border-radius: 10px;
-            border-top: 4px solid var(--royal-blue);
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
-        }
-
-        .west-side { border-top-color: #2563eb; }
-        .east-side { border-top-color: #dc2626; }
-
-        .bullet-list {
-            padding-left: 1.2rem;
-            margin-top: 1rem;
-        }
-
-        .bullet-list li {
-            margin-bottom: 0.75rem;
-            font-size: 1rem;
-            color: #475569;
-        }
-
-        /* تصميم قسم المرحلة صفر التجريبية الخضراء */
-        .sandbox-box {
-            background: #f0f7ff;
-            border: 2px dashed var(--royal-blue);
-            border-radius: 14px;
-            padding: 2.5rem;
-        }
-
-        .badge {
-            background-color: var(--accent-gold);
-            color: var(--royal-blue);
-            padding: 0.4rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            display: inline-block;
-            margin-bottom: 1.2rem;
-            text-transform: uppercase;
-        }
-
-        /* صندوق الاستدعاء الدبلوماسي الحاسم */
-        .diplomatic-gate {
-            background: linear-gradient(135deg, #0f172a 0%, var(--royal-blue) 100%);
-            color: var(--pure-white);
-            padding: 3.5rem 2rem;
-            border-radius: 14px;
-            text-align: center;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-
-        .diplomatic-gate h3 {
-            color: var(--accent-gold);
-            font-size: 1.8rem;
-            margin-top: 0;
-        }
-
-        .diplomatic-gate p {
-            color: #cbd5e1;
-            max-width: 650px;
-            margin: 1rem auto 2rem auto;
-            text-align: center;
-        }
-
-        .action-button {
-            display: inline-block;
-            background-color: var(--accent-gold);
-            color: var(--royal-blue);
-            padding: 1rem 2.5rem;
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
             border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            box-shadow: 0 4px 14px rgba(218, 165, 32, 0.4);
-            transition: transform 0.2s, box-shadow 0.2s;
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.2s;
         }
 
-        .action-button:hover {
-            transform: translateY(-3px);
-            box-s/* =========================
-   DAR SOFIA HEADER
-========================= */
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--accent-color);
+        }
 
-.site-header {
-    background: var(--navy);
-    color: var(--white);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 3px 15px rgba(0,0,0,.15);
-}
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
 
-.header-container {
-    max-width: 1200px;
-    min-height: 72px;
-    margin: 0 auto;
-    padding: 0 1.25rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-}
+        .btn-submit:hover {
+            background-color: #1d4ed8;
+        }
 
-.brand {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    flex-shrink: 0;
-}
-
-.brand img {
-    display: block;
-    width: 180px;
-    height: auto;
-    max-height: 55px;
-    object-fit: contain;
-}
-
-.main-nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 24px;
-}
-
-.main-nav a {
-    color: #d7e0e8;
-    text-decoration: none;
-    font-size: .95rem;
-    font-weight: 500;
-    transition: color .2s ease;
-    white-space: nowrap;
-}
-
-.main-nav a:hover {
-    color: var(--gold-light);
-}
-
-.header-actions {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-shrink: 0;
-}
-
-.header-actions .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 18px;
-    border-radius: 9px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: .9rem;
-    transition: all .2s ease;
-    white-space: nowrap;
-}
-
-.header-actions .btn-primary {
-    background: var(--gold);
-    color: var(--navy);
-}
-
-.header-actions .btn-primary:hover {
-    background: var(--gold-light);
-    transform: translateY(-1px);
-}
-
-.header-actions .btn-outline {
-    color: var(--white);
-    border: 1px solid rgba(255,255,255,.35);
-    background: transparent;
-}
-
-.header-actions .btn-outline:hover {
-    border-color: var(--gold-light);
-    color: var(--gold-light);
-}
-
-/* =========================
-   HEADER - MOBILE
-========================= */
-
-@media (max-width: 900px) {
-
-    .header-container {
-        min-height: 68px;
-        padding: 0 1rem;
-    }
-
-    .brand img {
-        width: 150px;
-    }
-
-    .main-nav {
-        display: none;
-    }
-
-    .header-actions {
-        gap: 7px;
-    }
-
-    .header-actions .btn {
-        padding: 9px 12px;
-        font-size: .82rem;
-    }
-}
-
-@media (max-width: 480px) {
-
-    .header-container {
-        gap: 8px;
-    }
-
-    .brand img {
-        width: 125px;
-    }
-
-    .header-actions .btn {
-        padding: 8px 9px;
-        font-size: .76rem;
-    }
-}footer {
+        .back-home {
             text-align: center;
-            padding: 3.5rem 1rem;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            background-color: #e2e8f0;
-            margin-top: 5rem;
-            border-top: 2px solid #cbd5e1;
+            margin-top: 25px;
+        }
+
+        .back-home a {
+            color: #64748b;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .back-home a:hover {
+            color: var(--accent-color);
         }
     </style>
 </head>
 <body>
 
-    <!-- قسم واجهة الهيرو الرئيسية الفخمة -->
-    <div class="hero-section">
-        <div class="logo-container">
-            <!-- الشعار الفخم logo.png سيتم تحميله هنا تلقائياً -->
-            <img src="logo.png" alt="Dar Qurtuba Sovereign Logo">
+    <div class="register-container">
+        <div class="logo-area">
+            <div>ص</div>
+            <h1>إنشاء حساب جديد</h1>
+            <p>انضم إلى منصة دار صوفيا وابدأ رحلتك الرقمية</p>
         </div>
-        <h1>DAR QURTUBA INITIATIVE</h1>
-        <div class="tagline">أساس توافقنا & الملاذ الرقمي والسيادي المحايد</div>
-        <div class="subtitle">The Geopolitical Clearinghouse and Immutable Data Sanctuary of South Arabia</div>
+
+        <form id="registerForm">
+            <div class="form-group">
+                <label for="fullname">الاسم الكامل</label>
+                <input type="text" id="fullname" placeholder="أدخل اسمك الكامل" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">البريد الإلكتروني</label>
+                <input type="email" id="email" placeholder="name@example.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">كلمة المرور</label>
+                <input type="password" id="password" placeholder="أدخل كلمة مرور قوية" required>
+            </div>
+
+            <div class="form-group">
+                <label for="experience">مجال اهتمامك الأساسي</label>
+                <select id="experience">
+                    <option value="cash">SofiaCash (فرص الدخل والمهام)</option>
+                    <option value="learn">SofiaLearn (التعلم وتطوير المهارات)</option>
+                    <option value="ai">SofiaAI (الذكاء الاصطناعي والأدوات)</option>
+                    <option value="all">جميع ما سبق</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn-submit">إنشاء الحساب مجاناً</button>
+        </form>
+
+        <div class="back-home">
+            <a href="index.html">← العودة إلى الصفحة الرئيسية</a>
+        </div>
     </div>
 
-    <!-- شريط التنقل السريع -->
-    <nav>
-        <a href="#geopolitics">Geopolitical Axis</a>
-        <a href="#neutrality">Sovereign Neutrality</a>
-        <a href="#technical">The Bilateral Grid</a>
-        <a href="#sandbox">Phase Zero Sandbox</a>
-        <a href="#diplomacy">Diplomatic Terminal</a>
-    </nav>
-
-    <div class="container">
-        
-        <!-- القسم 1: المحور الجيوسياسي وعقيدة الحراس الأحرار -->
-        <div class="main-section" id="geopolitics">
-            <h2>1. The Geopolitical Axis & Oceanic Command</h2>
-            <p>Positioned outside the volatile, micro-managed corridors of closed gulf waters, <strong>Dar Qurtuba</strong> commands the deep open ocean front of South Arabia (Aden Operational Hub). Bypassing restricted marine blockades such as the Strait of Hormuz, the initiative provides direct, unhindered access to international submarine cable trunks and critical deep-sea fiber routing across global naval vectors.</p>
-            <h3>The Existential Guardian Doctrine</h3>
-            <p>Unlike regional commercial models operated by temporary mercenary entities, Dar Qurtuba relies on an absolute socio-cultural foundation: <strong>The Existential Guardian Doctrine</strong>. The native populace safeguards the computing arrays and global energy lines not out of economic convenience, but as an absolute requirement for communal survival and immunity from reliance. They protect the infrastructure because it represents their cultural sovereignty and socio-economic shield.</p>
-        </div>
-
-        <!-- القسم 2: الحصانة السويسرية والمقاصة متعددة العملات -->
-        <div class="main-section gold-border" id="neutrality">
-            <h2>2. The Neutrality Protocol & Sovereign Assets Safeguard</h2>
-            <p>Engineered directly from the historic Swiss model for trans-national asset preservation, Dar Qurtuba serves as an air-gapped, multi-bloc clearinghouse. Operating outside unilateral regulatory weaponization, asset freezing mandates, or proxy financial sanctions, it guarantees immutable security for international capital and data infrastructure nodes.</p>
-            <h3>Sovereign Multi-Currency Settlement</h3>
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let nameInput = document.getElementById('fullname').value;
+            localStorage.setItem('sofia_username', nameInput);
+            localStorage.setItem('sofia_points', 50);
+            window.location.href = 'dashboard.html';
+        });
+    </script>
+</body>
+</html>
