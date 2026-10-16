@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم - دار صوفيا | Dar Sofia</title>
+    <style>
+        :root {
+            --primary-color: #0f172a;
+            --accent-color: #2563eb;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-color: #334155;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding-bottom: 40px;
+        }
+
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 35px;
+            height: 35px;
+            background-color: var(--accent-color);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+        }
+
+        .logout-btn {
+            color: #ef4444;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .welcome-card {
+            background: linear-gradient(135deg, var(--primary-color), #1e293b);
+            color: white;
+            padding: 30px;
+            border-radius: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .welcome-text h1 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .welcome-text p {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .points-badge {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 15px 25px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .points-badge span {
+            display: block;
+            font-size: 12px;
+            color: #cbd5e1;
+        }
+
+        .points-badge strong {
+            font-size: 28px;
+            color: #f59e0b;
+        }
+
+        .section-title {
+            font-size: 20px;
+            margin: 35px 0 20px 0;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .offer-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .offer-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+
+        .offer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .offer-icon {
+            font-size: 24px;
+            background: #eff6ff;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+        }
+
+        .offer-reward {
+            background-color: #fef3c7;
+            color: #d97706;
+            font-weight: bold;
+            font-size: 13px;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+
+        .offer-card h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+        }
+
+        .offer-card p {
+            font-size: 13px;
+            color: #64748b;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .btn-start-offer {
+            display: block;
+            text-align: center;
+            background-color: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .btn-start-offer:hover {
+            background-color: #1d4ed8;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">
+            <div class="logo-icon">ص</div>
+            <span>دار صوفيا</span>
+        </a>
+        <div class="user-nav">
+            <a href="index.html" class="logout-btn" onclick="localStorage.clear()">تسجيل الخروج</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="welcome-card">
+            <div class="welcome-text">
+                <h1>أهلاً بك، <span id="userName">المستخدم</span> 👋</h1>
+                <p>مرحباً بك في SofiaHub - تابع أداءك واستكشف الفرص المتاحة.</p>
+            </div>
+            <div class="points-badge">
+                <span>رصيد النقاط المكتسبة</span>
+                <strong id="userPoints">50</strong> نقطة
+            </div>
+        </div>
+
+        <h2 class="section-title">⚡ العروض والمهام المتاحة (SofiaCash)</h2>
+
+        <div class="offers-grid">
+            <div class="offer-card">
+                <div>
+                    <div class="offer-header">
+                        <div class="offer-icon">📋</div>
+                        <span class="offer-reward">+20 نقطة</span>
+                    </div>
+                    <h3>استطلاع رأي سريع</h3>
+                    <p>أجب عن 5 أسئلة بسيطة حول اهتماماتك الرقمية لتحديد الفرص المناسبة لك.</p>
+                </div>
+                <a href="#" class="btn-start-offer" onclick="addPoints(20); alert('تم إكمال المهمة وتجربة إضافة النقاط بنجاح!'); return false;">بدء المهمة</a>
+            </div>
+
+            <div class="offer-card">
+                <div>
+                    <div class="offer-header">
+                        <div class="offer-icon">📲</div>
+                        <span class="offer-reward">+35 نقطة</span>
+                    </div>
+                    <h3>تجربة تطبيق رقمي</h3>
+                    <p>قم بتحميل التطبيق الشريك واختبار الواجهة لمدة 3 دقائق.</p>
+                </div>
+                <a href="#" class="btn-start-offer" onclick="addPoints(35); alert('تم إكمال المهمة بنجاح!'); return false;">بدء المهمة</a>
+            </div>
+
+            <div class="offer-card">
+                <div>
+                    <div class="offer-header">
+                        <div class="offer-icon">🎓</div>
+                        <span class="offer-reward">+50 نقطة</span>
+                    </div>
+                    <h3>قراءة مقال تعليمي</h3>
+                    <p>تعرف على أساليب العمل الحر عبر الإنترنت وطرق زيادة دخلك.</p>
+                </div>
+                <a href="#" class="btn-start-offer" onclick="addPoints(50); alert('تم إكمال القراءة بنجاح!'); return false;">بدء المهمة</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            let savedName = localStorage.getItem('sofia_username');
+            let savedPoints = localStorage.getItem('sofia_points');
+
+            if (savedName) {
+                document.getElementById('userName').innerText = savedName;
+            } else {
+                document.getElementById('userName').innerText = "زائر دار صوفيا";
+            }
+
+            if (savedPoints) {
+                document.getElementById('userPoints').innerText = savedPoints;
+            } else {
+                localStorage.setItem('sofia_points', 50);
+            }
+        };
+
+        function addPoints(pts) {
+            let currentPoints = parseInt(localStorage.getItem('sofia_points') || 50);
+            let newPoints = currentPoints + pts;
+            localStorage.setItem('sofia_points', newPoints);
+            document.getElementById('userPoints').innerText = newPoints;
+        }
+    </script>
+</body>
+</html>
