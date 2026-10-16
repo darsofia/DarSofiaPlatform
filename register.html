@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنشاء حساب جديد - دار صوفيا | Dar Sofia</title>
+    <style>
+        :root {
+            --primary-color: #0f172a;
+            --accent-color: #2563eb;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-color: #334155;
+            --border-color: #cbd5e1;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .register-container {
+            background-color: var(--card-bg);
+            width: 100%;
+            max-width: 450px;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        .logo-area {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo-area div:first-child {
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent-color);
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 12px;
+            margin: 0 auto 10px auto;
+        }
+
+        .logo-area h1 {
+            font-size: 22px;
+            color: var(--primary-color);
+        }
+
+        .logo-area p {
+            font-size: 14px;
+            color: #64748b;
+            margin-top: 5px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--accent-color);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-submit:hover {
+            background-color: #1d4ed8;
+        }
+
+        .back-home {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .back-home a {
+            color: #64748b;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .back-home a:hover {
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="register-container">
+        <div class="logo-area">
+            <div>ص</div>
+            <h1>إنشاء حساب جديد</h1>
+            <p>انضم إلى منصة دار صوفيا وابدأ رحلتك الرقمية</p>
+        </div>
+
+        <form action="#" method="POST" onsubmit="event.preventDefault(); alert('تم استلام طلبك التجريبي بنجاح! سيتم ربط النظام لاحقاً.');">
+            <div class="form-group">
+                <label for="fullname">الاسم الكامل</label>
+                <input type="text" id="fullname" placeholder="أدخل اسمك الكامل" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">البريد الإلكتروني</label>
+                <input type="email" id="email" placeholder="name@example.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">كلمة المرور</label>
+                <input type="password" id="password" placeholder="أدخل كلمة مرور قوية" required>
+            </div>
+
+            <div class="form-group">
+                <label for="experience">مجال اهتمامك الأساسي</label>
+                <select id="experience">
+                    <option value="cash">SofiaCash (فرص الدخل والمهام)</option>
+                    <option value="learn">SofiaLearn (التعلم وتطوير المهارات)</option>
+                    <option value="ai">SofiaAI (الذكاء الاصطناعي والأدوات)</option>
+                    <option value="all">جميع ما سبق</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn-submit">إنشاء الحساب مجاناً</button>
+        </form>
+
+        <div class="back-home">
+            <a href="index.html">← العودة إلى الصفحة الرئيسية</a>
+        </div>
+    </div>
+
+</body>
+</html>
