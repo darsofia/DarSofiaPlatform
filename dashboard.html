@@ -12,6 +12,8 @@
             --card-bg: #ffffff;
             --text-color: #334155;
             --border-color: #e2e8f0;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
         }
 
         * {
@@ -24,7 +26,7 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
-            padding-bottom: 40px;
+            padding-bottom: 50px;
         }
 
         header {
@@ -34,6 +36,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
 
         .logo {
@@ -65,65 +70,136 @@
 
         .container {
             max-width: 1000px;
-            margin: 30px auto;
-            padding: 0 20px;
+            margin: 20px auto;
+            padding: 0 15px;
         }
 
+        /* كارت المستخدم والارقام */
         .welcome-card {
             background: linear-gradient(135deg, var(--primary-color), #1e293b);
             color: white;
-            padding: 30px;
+            padding: 25px;
             border-radius: 16px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            gap: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
         }
 
         .welcome-text h1 {
-            font-size: 24px;
-            margin-bottom: 8px;
+            font-size: 22px;
+            margin-bottom: 5px;
         }
 
         .welcome-text p {
             color: #94a3b8;
-            font-size: 14px;
+            font-size: 13px;
         }
 
-        .points-badge {
+        .stats-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        .stat-badge {
             background-color: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 15px 25px;
+            padding: 10px 18px;
             border-radius: 12px;
             text-align: center;
         }
 
-        .points-badge span {
+        .stat-badge span {
             display: block;
-            font-size: 12px;
+            font-size: 11px;
             color: #cbd5e1;
         }
 
-        .points-badge strong {
-            font-size: 28px;
-            color: #f59e0b;
+        .stat-badge strong {
+            font-size: 22px;
+            color: var(--warning-color);
         }
 
-        .section-title {
-            font-size: 20px;
-            margin: 35px 0 20px 0;
-            color: var(--primary-color);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .offers-grid {
+        /* قسم المكافآت السريعة (Streak & Hourly) */
+        .quick-rewards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .reward-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .reward-info h3 {
+            font-size: 15px;
+            color: var(--primary-color);
+        }
+
+        .reward-info p {
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        .btn-claim {
+            background-color: var(--success-color);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* تبويبات الأقسام */
+        .tabs-container {
+            margin-top: 30px;
+        }
+
+        .tabs-header {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #64748b;
+            cursor: pointer;
+            white-space: nowrap;
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab-btn.active {
+            color: var(--accent-color);
+            border-bottom-color: var(--accent-color);
+        }
+
+        .tab-content {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .tab-content.active {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
         }
 
         .offer-card {
@@ -134,69 +210,74 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .offer-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
         }
 
         .offer-header {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 15px;
-        }
-
-        .offer-icon {
-            font-size: 24px;
-            background: #eff6ff;
-            width: 45px;
-            height: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 10px;
+            margin-bottom: 12px;
         }
 
         .offer-reward {
             background-color: #fef3c7;
             color: #d97706;
             font-weight: bold;
-            font-size: 13px;
-            padding: 4px 10px;
-            border-radius: 20px;
+            font-size: 12px;
+            padding: 4px 8px;
+            border-radius: 15px;
         }
 
-        .offer-card h3 {
-            font-size: 16px;
-            margin-bottom: 8px;
-            color: var(--primary-color);
-        }
-
-        .offer-card p {
-            font-size: 13px;
-            color: #64748b;
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-
-        .btn-start-offer {
+        .btn-start {
             display: block;
             text-align: center;
             background-color: var(--accent-color);
             color: white;
             text-decoration: none;
-            padding: 10px;
+            padding: 9px;
             border-radius: 8px;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
-            transition: background 0.2s;
+            margin-top: 15px;
         }
 
-        .btn-start-offer:hover {
-            background-color: #1d4ed8;
+        /* قسم الإحالة */
+        .referral-box {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 35px;
+        }
+
+        .referral-box h3 {
+            font-size: 16px;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        .referral-input-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .referral-input-group input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 13px;
+            background-color: #f1f5f9;
+        }
+
+        .btn-copy {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -207,71 +288,149 @@
             <div class="logo-icon">ص</div>
             <span>دار صوفيا</span>
         </a>
-        <div class="user-nav">
-            <a href="index.html" class="logout-btn" onclick="localStorage.clear()">تسجيل الخروج</a>
-        </div>
+        <a href="index.html" class="logout-btn" onclick="localStorage.clear()">تسجيل الخروج</a>
     </header>
 
     <div class="container">
+        <!-- كارت الترحيب والنقاط -->
         <div class="welcome-card">
             <div class="welcome-text">
                 <h1>أهلاً بك، <span id="userName">المستخدم</span> 👋</h1>
-                <p>مرحباً بك في SofiaHub - تابع أداءك واستكشف الفرص المتاحة.</p>
+                <p>مرحباً بك في SofiaHub - استكشف الفرص المتاحة واجمع نقاطك.</p>
             </div>
-            <div class="points-badge">
-                <span>رصيد النقاط المكتسبة</span>
-                <strong id="userPoints">50</strong> نقطة
+            <div class="stats-group">
+                <div class="stat-badge">
+                    <span>الرصيد الحرفي</span>
+                    <strong id="userPoints">50</strong> <small>نقطة</small>
+                </div>
+                <div class="stat-badge">
+                    <span>الإحالات</span>
+                    <strong id="refCount">0</strong>
+                </div>
             </div>
         </div>
 
-        <h2 class="section-title">⚡ العروض والمهام المتاحة (SofiaCash)</h2>
-
-        <div class="offers-grid">
-            <div class="offer-card">
-                <div>
-                    <div class="offer-header">
-                        <div class="offer-icon">📋</div>
-                        <span class="offer-reward">+20 نقطة</span>
-                    </div>
-                    <h3>استطلاع رأي سريع</h3>
-                    <p>أجب عن 5 أسئلة بسيطة حول اهتماماتك الرقمية لتحديد الفرص المناسبة لك.</p>
+        <!-- قسم المكافآت السريعة (Daily Streak & Hourly Crown) -->
+        <div class="quick-rewards">
+            <div class="reward-card">
+                <div class="reward-info">
+                    <h3>🔥 السلسلة اليومية (Daily Streak)</h3>
+                    <p>سجل دخولك يومياً واحصل على مكافأة متزايدة.</p>
                 </div>
-                <a href="#" class="btn-start-offer" onclick="addPoints(20); alert('تم إكمال المهمة وتجربة إضافة النقاط بنجاح!'); return false;">بدء المهمة</a>
+                <button class="btn-claim" onclick="claimDailyStreak()">استلام +10</button>
             </div>
 
-            <div class="offer-card">
-                <div>
-                    <div class="offer-header">
-                        <div class="offer-icon">📲</div>
-                        <span class="offer-reward">+35 نقطة</span>
-                    </div>
-                    <h3>تجربة تطبيق رقمي</h3>
-                    <p>قم بتحميل التطبيق الشريك واختبار الواجهة لمدة 3 دقائق.</p>
+            <div class="reward-card">
+                <div class="reward-info">
+                    <h3>👑 التاج الساعي (Hourly Crown)</h3>
+                    <p>احصل على نقاط مجانية كل ساعة.</p>
                 </div>
-                <a href="#" class="btn-start-offer" onclick="addPoints(35); alert('تم إكمال المهمة بنجاح!'); return false;">بدء المهمة</a>
+                <button class="btn-claim" style="background-color: var(--accent-color);" onclick="claimHourly()">استلام +5</button>
+            </div>
+        </div>
+
+        <!-- تبويبات فرص الربح -->
+        <div class="tabs-container">
+            <div class="tabs-header">
+                <button class="tab-btn active" onclick="switchTab('all')">الكل</button>
+                <button class="tab-btn" onclick="switchTab('games')">🎮 الألعاب (Games)</button>
+                <button class="tab-btn" onclick="switchTab('surveys')">📋 الاستطلاعات (Surveys)</button>
+                <button class="tab-btn" onclick="switchTab('tasks')">⚙️ المهام (Tasks)</button>
+                <button class="tab-btn" onclick="switchTab('offerwalls')">🌐 جدران العروض (Offerwalls)</button>
+                <button class="tab-btn" onclick="switchTab('clicks')">🖱️ النقاط والزيارات (Clicks)</button>
             </div>
 
-            <div class="offer-card">
-                <div>
-                    <div class="offer-header">
-                        <div class="offer-icon">🎓</div>
-                        <span class="offer-reward">+50 نقطة</span>
+            <!-- محتوى الألعاب -->
+            <div id="tab-games" class="tab-content active">
+                <div class="offer-card">
+                    <div>
+                        <div class="offer-header">
+                            <span>🎮 مغامرة الألغاز</span>
+                            <span class="offer-reward">+45 نقطة</span>
+                        </div>
+                        <p style="font-size: 13px; color: #64748b;">قم بتنزيل اللعبة والوصول للمستوى 5 لتأكيد الإنجاز.</p>
                     </div>
-                    <h3>قراءة مقال تعليمي</h3>
-                    <p>تعرف على أساليب العمل الحر عبر الإنترنت وطرق زيادة دخلك.</p>
+                    <a href="#" class="btn-start" onclick="addPoints(45); alert('تم تسجيل بدء مهمة اللعبة بنجاح!'); return false;">بدء اللعب</a>
                 </div>
-                <a href="#" class="btn-start-offer" onclick="addPoints(50); alert('تم إكمال القراءة بنجاح!'); return false;">بدء المهمة</a>
+            </div>
+
+            <!-- محتوى الاستطلاعات -->
+            <div id="tab-surveys" class="tab-content active">
+                <div class="offer-card">
+                    <div>
+                        <div class="offer-header">
+                            <span>📋 استطلاع التقنية 2026</span>
+                            <span class="offer-reward">+30 نقطة</span>
+                        </div>
+                        <p style="font-size: 13px; color: #64748b;">أجب عن 6 أسئلة حول استخدامك للتطبيقات الرقمية.</p>
+                    </div>
+                    <a href="#" class="btn-start" onclick="addPoints(30); alert('تم إكمال الاستطلاع بنجاح!'); return false;">بدء الاستطلاع</a>
+                </div>
+            </div>
+
+            <!-- محتوى المهام -->
+            <div id="tab-tasks" class="tab-content active">
+                <div class="offer-card">
+                    <div>
+                        <div class="offer-header">
+                            <span>📲 تجربة تطبيق صوفيا</span>
+                            <span class="offer-reward">+25 نقطة</span>
+                        </div>
+                        <p style="font-size: 13px; color: #64748b;">اختبر واجهة المستثمر واكتب تقييمك السريع.</p>
+                    </div>
+                    <a href="#" class="btn-start" onclick="addPoints(25); alert('تم إكمال المهمة بنجاح!'); return false;">تنفيذ المهمة</a>
+                </div>
+            </div>
+
+            <!-- محتوى جدران العروض -->
+            <div id="tab-offerwalls" class="tab-content active">
+                <div class="offer-card">
+                    <div>
+                        <div class="offer-header">
+                            <span>🌐 شبكة CPAGrip</span>
+                            <span class="offer-reward">عروض متجددة</span>
+                        </div>
+                        <p style="font-size: 13px; color: #64748b;">تصفح جدار العروض المعتمد لاستكمال التنزيلات والاستبيانات.</p>
+                    </div>
+                    <a href="#" class="btn-start" onclick="alert('سيتم فتح جدار العروض المربوط قريباً!'); return false;">فتح جدار العروض</a>
+                </div>
+            </div>
+
+            <!-- محتوى النقاط والزيارات -->
+            <div id="tab-clicks" class="tab-content active">
+                <div class="offer-card">
+                    <div>
+                        <div class="offer-header">
+                            <span>🖱️ زيارة مقال تعليمي</span>
+                            <span class="offer-reward">+10 نقاط</span>
+                        </div>
+                        <p style="font-size: 13px; color: #64748b;">اقرأ المقال لمدة 30 ثانية للحصول على المكافأة.</p>
+                    </div>
+                    <a href="#" class="btn-start" onclick="addPoints(10); alert('تمت زيارة المقال وإضافة النقاط!'); return false;">زيارة الموقع</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- قسم نظام الإحالة (Referral) -->
+        <div class="referral-box">
+            <h3>🔗 نظام دعوة الأصدقاء (Referral System)</h3>
+            <p style="font-size: 13px; color: #64748b;">شارك رابطك الخاص مع أصدقائك واحصل على 15 نقطة عن كل صديق ينضم للدار!</p>
+            <div class="referral-input-group">
+                <input type="text" id="refLink" value="https://darsofia.github.io/DarSofiaPlatform/register.html?ref=user123" readonly>
+                <button class="btn-copy" onclick="copyRefLink()">نسخ الرابط</button>
             </div>
         </div>
     </div>
 
     <script>
+        // قراءة وبيانات الحساب
         window.onload = function() {
             let savedName = localStorage.getItem('sofia_username');
             let savedPoints = localStorage.getItem('sofia_points');
 
             if (savedName) {
                 document.getElementById('userName').innerText = savedName;
+                document.getElementById('refLink').value = "https://darsofia.github.io/DarSofiaPlatform/register.html?ref=" + encodeURIComponent(savedName);
             } else {
                 document.getElementById('userName').innerText = "زائر دار صوفيا";
             }
@@ -283,11 +442,57 @@
             }
         };
 
+        // زيادة النقاط
         function addPoints(pts) {
             let currentPoints = parseInt(localStorage.getItem('sofia_points') || 50);
             let newPoints = currentPoints + pts;
             localStorage.setItem('sofia_points', newPoints);
             document.getElementById('userPoints').innerText = newPoints;
+        }
+
+        // السلسلة اليومية
+        function claimDailyStreak() {
+            let lastClaim = localStorage.getItem('sofia_daily_claim');
+            let today = new Date().toDateString();
+
+            if (lastClaim === today) {
+                alert('لقد استلمت مكافأتك اليومية بالفعل! عد غداً للحصول على المزيد.');
+            } else {
+                localStorage.setItem('sofia_daily_claim', today);
+                addPoints(10);
+                alert('🎉 تهانينا! حصلت على +10 نقاط من السلسلة اليومية.');
+            }
+        }
+
+        // التاج الساعي
+        function claimHourly() {
+            addPoints(5);
+            alert('👑 تم استلام +5 نقاط من التاج الساعي!');
+        }
+
+        // نسخ رابط الإحالة
+        function copyRefLink() {
+            let copyText = document.getElementById("refLink");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(copyText.value);
+            alert("تم نسخ رابط الإحالة الخاص بك بنجاح!");
+        }
+
+        // التنقل بين التبويبات
+        function switchTab(tabName) {
+            let tabs = document.querySelectorAll('.tab-btn');
+            let contents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+
+            if (tabName === 'all') {
+                contents.forEach(content => content.style.display = 'grid');
+            } else {
+                contents.forEach(content => content.style.display = 'none');
+                document.getElementById('tab-' + tabName).style.display = 'grid';
+            }
         }
     </script>
 </body>
