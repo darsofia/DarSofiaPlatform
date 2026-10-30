@@ -523,9 +523,22 @@
 
         let currentLang = localStorage.getItem('sofia_lang') || 'ar';
 
-        window.onload = function() {
+                window.onload = function() {
             let savedName = localStorage.getItem('sofia_username');
             let savedPoints = localStorage.getItem('sofia_points');
 
             if (savedName) {
-           
+                document.getElementById('userName').innerText = savedName;
+                document.getElementById('refLink').value = "https://darsofia.github.io/DarSofiaPlatform/register.html?ref=" + encodeURIComponent(savedName);
+            } else {
+                document.getElementById('userName').innerText = currentLang === 'ar' ? "زائر دار صوفيا" : "Sofia Guest";
+            }
+
+            if (savedPoints) {
+                document.getElementById('userPoints').innerText = savedPoints;
+            } else {
+                localStorage.setItem('sofia_points', 50);
+            }
+
+            applyLanguage(currentLang);
+        };
