@@ -61,6 +61,23 @@
             border-radius: 8px;
         }
 
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: 1px solid var(--border-color);
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 13px;
+            color: var(--primary-color);
+        }
+
         .logout-btn {
             color: #ef4444;
             text-decoration: none;
@@ -122,7 +139,7 @@
             color: var(--warning-color);
         }
 
-        /* قسم المكافآت السريعة (Streak & Hourly) */
+        /* قسم المكافآت السريعة */
         .quick-rewards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -286,58 +303,61 @@
     <header>
         <a href="index.html" class="logo">
             <div class="logo-icon">ص</div>
-            <span>دار صوفيا</span>
+            <span data-i18n="brand">دار صوفيا</span>
         </a>
-        <a href="index.html" class="logout-btn" onclick="localStorage.clear()">تسجيل الخروج</a>
+        <div class="header-actions">
+            <button id="langToggleBtn" class="lang-btn" onclick="toggleLanguage()">English 🌐</button>
+            <a href="index.html" class="logout-btn" onclick="localStorage.clear()" data-i18n="logout">تسجيل الخروج</a>
+        </div>
     </header>
 
     <div class="container">
         <!-- كارت الترحيب والنقاط -->
         <div class="welcome-card">
             <div class="welcome-text">
-                <h1>أهلاً بك، <span id="userName">المستخدم</span> 👋</h1>
-                <p>مرحباً بك في SofiaHub - استكشف الفرص المتاحة واجمع نقاطك.</p>
+                <h1><span data-i18n="welcome">أهلاً بك،</span> <span id="userName">المستخدم</span> 👋</h1>
+                <p data-i18n="sub_welcome">مرحباً بك في SofiaHub - استكشف الفرص المتاحة واجمع نقاطك.</p>
             </div>
             <div class="stats-group">
                 <div class="stat-badge">
-                    <span>الرصيد الحرفي</span>
-                    <strong id="userPoints">50</strong> <small>نقطة</small>
+                    <span data-i18n="points_label">الرصيد الحرفي</span>
+                    <strong id="userPoints">50</strong> <small data-i18n="points_unit">نقطة</small>
                 </div>
                 <div class="stat-badge">
-                    <span>الإحالات</span>
+                    <span data-i18n="ref_label">الإحالات</span>
                     <strong id="refCount">0</strong>
                 </div>
             </div>
         </div>
 
-        <!-- قسم المكافآت السريعة (Daily Streak & Hourly Crown) -->
+        <!-- قسم المكافآت السريعة -->
         <div class="quick-rewards">
             <div class="reward-card">
                 <div class="reward-info">
-                    <h3>🔥 السلسلة اليومية (Daily Streak)</h3>
-                    <p>سجل دخولك يومياً واحصل على مكافأة متزايدة.</p>
+                    <h3 data-i18n="streak_title">🔥 السلسلة اليومية (Daily Streak)</h3>
+                    <p data-i18n="streak_desc">سجل دخولك يومياً واحصل على مكافأة متزايدة.</p>
                 </div>
-                <button class="btn-claim" onclick="claimDailyStreak()">استلام +10</button>
+                <button class="btn-claim" onclick="claimDailyStreak()" data-i18n="claim_btn">استلام +10</button>
             </div>
 
             <div class="reward-card">
                 <div class="reward-info">
-                    <h3>👑 التاج الساعي (Hourly Crown)</h3>
-                    <p>احصل على نقاط مجانية كل ساعة.</p>
+                    <h3 data-i18n="hourly_title">👑 التاج الساعي (Hourly Crown)</h3>
+                    <p data-i18n="hourly_desc">احصل على نقاط مجانية كل ساعة.</p>
                 </div>
-                <button class="btn-claim" style="background-color: var(--accent-color);" onclick="claimHourly()">استلام +5</button>
+                <button class="btn-claim" style="background-color: var(--accent-color);" onclick="claimHourly()" data-i18n="claim_btn">استلام +5</button>
             </div>
         </div>
 
         <!-- تبويبات فرص الربح -->
         <div class="tabs-container">
             <div class="tabs-header">
-                <button class="tab-btn active" onclick="switchTab('all')">الكل</button>
-                <button class="tab-btn" onclick="switchTab('games')">🎮 الألعاب (Games)</button>
-                <button class="tab-btn" onclick="switchTab('surveys')">📋 الاستطلاعات (Surveys)</button>
-                <button class="tab-btn" onclick="switchTab('tasks')">⚙️ المهام (Tasks)</button>
-                <button class="tab-btn" onclick="switchTab('offerwalls')">🌐 جدران العروض (Offerwalls)</button>
-                <button class="tab-btn" onclick="switchTab('clicks')">🖱️ النقاط والزيارات (Clicks)</button>
+                <button class="tab-btn active" onclick="switchTab('all', this)" data-i18n="tab_all">الكل</button>
+                <button class="tab-btn" onclick="switchTab('games', this)" data-i18n="tab_games">🎮 الألعاب</button>
+                <button class="tab-btn" onclick="switchTab('surveys', this)" data-i18n="tab_surveys">📋 الاستطلاعات</button>
+                <button class="tab-btn" onclick="switchTab('tasks', this)" data-i18n="tab_tasks">⚙️ المهام</button>
+                <button class="tab-btn" onclick="switchTab('offerwalls', this)" data-i18n="tab_offerwalls">🌐 جدران العروض</button>
+                <button class="tab-btn" onclick="switchTab('clicks', this)" data-i18n="tab_clicks">🖱️ النقاط والزيارات</button>
             </div>
 
             <!-- محتوى الألعاب -->
@@ -345,12 +365,12 @@
                 <div class="offer-card">
                     <div>
                         <div class="offer-header">
-                            <span>🎮 مغامرة الألغاز</span>
+                            <span data-i18n="game_title">🎮 مغامرة الألغاز</span>
                             <span class="offer-reward">+45 نقطة</span>
                         </div>
-                        <p style="font-size: 13px; color: #64748b;">قم بتنزيل اللعبة والوصول للمستوى 5 لتأكيد الإنجاز.</p>
+                        <p style="font-size: 13px; color: #64748b;" data-i18n="game_desc">قم بتنزيل اللعبة والوصول للمستوى 5 لتأكيد الإنجاز.</p>
                     </div>
-                    <a href="#" class="btn-start" onclick="addPoints(45); alert('تم تسجيل بدء مهمة اللعبة بنجاح!'); return false;">بدء اللعب</a>
+                    <a href="#" class="btn-start" onclick="addPoints(45); alert(currentLang==='ar'?'تم تسجيل بدء مهمة اللعبة بنجاح!':'Game task started successfully!'); return false;" data-i18n="start_btn">بدء اللعب</a>
                 </div>
             </div>
 
@@ -359,12 +379,12 @@
                 <div class="offer-card">
                     <div>
                         <div class="offer-header">
-                            <span>📋 استطلاع التقنية 2026</span>
+                            <span data-i18n="survey_title">📋 استطلاع التقنية 2026</span>
                             <span class="offer-reward">+30 نقطة</span>
                         </div>
-                        <p style="font-size: 13px; color: #64748b;">أجب عن 6 أسئلة حول استخدامك للتطبيقات الرقمية.</p>
+                        <p style="font-size: 13px; color: #64748b;" data-i18n="survey_desc">أجب عن 6 أسئلة حول استخدامك للتطبيقات الرقمية.</p>
                     </div>
-                    <a href="#" class="btn-start" onclick="addPoints(30); alert('تم إكمال الاستطلاع بنجاح!'); return false;">بدء الاستطلاع</a>
+                    <a href="#" class="btn-start" onclick="addPoints(30); alert(currentLang==='ar'?'تم إكمال الاستطلاع بنجاح!':'Survey completed successfully!'); return false;" data-i18n="start_btn">بدء الاستطلاع</a>
                 </div>
             </div>
 
@@ -373,12 +393,12 @@
                 <div class="offer-card">
                     <div>
                         <div class="offer-header">
-                            <span>📲 تجربة تطبيق صوفيا</span>
+                            <span data-i18n="task_title">📲 تجربة تطبيق صوفيا</span>
                             <span class="offer-reward">+25 نقطة</span>
                         </div>
-                        <p style="font-size: 13px; color: #64748b;">اختبر واجهة المستثمر واكتب تقييمك السريع.</p>
+                        <p style="font-size: 13px; color: #64748b;" data-i18n="task_desc">اختبر واجهة المستثمر واكتب تقييمك السريع.</p>
                     </div>
-                    <a href="#" class="btn-start" onclick="addPoints(25); alert('تم إكمال المهمة بنجاح!'); return false;">تنفيذ المهمة</a>
+                    <a href="#" class="btn-start" onclick="addPoints(25); alert(currentLang==='ar'?'تم إكمال المهمة بنجاح!':'Task completed successfully!'); return false;" data-i18n="start_btn">تنفيذ المهمة</a>
                 </div>
             </div>
 
@@ -387,12 +407,12 @@
                 <div class="offer-card">
                     <div>
                         <div class="offer-header">
-                            <span>🌐 شبكة CPAGrip</span>
-                            <span class="offer-reward">عروض متجددة</span>
+                            <span data-i18n="offer_title">🌐 شبكة CPAGrip</span>
+                            <span class="offer-reward" data-i18n="offer_badge">عروض متجددة</span>
                         </div>
-                        <p style="font-size: 13px; color: #64748b;">تصفح جدار العروض المعتمد لاستكمال التنزيلات والاستبيانات.</p>
+                        <p style="font-size: 13px; color: #64748b;" data-i18n="offer_desc">تصفح جدار العروض المعتمد لاستكمال التنزيلات والاستبيانات.</p>
                     </div>
-                    <a href="#" class="btn-start" onclick="alert('سيتم فتح جدار العروض المربوط قريباً!'); return false;">فتح جدار العروض</a>
+                    <a href="#" class="btn-start" onclick="alert(currentLang==='ar'?'سيتم فتح جدار العروض المربوط قريباً!':'Offerwall will open soon!'); return false;" data-i18n="open_btn">فتح جدار العروض</a>
                 </div>
             </div>
 
@@ -401,29 +421,108 @@
                 <div class="offer-card">
                     <div>
                         <div class="offer-header">
-                            <span>🖱️ زيارة مقال تعليمي</span>
+                            <span data-i18n="click_title">🖱️ زيارة مقال تعليمي</span>
                             <span class="offer-reward">+10 نقاط</span>
                         </div>
-                        <p style="font-size: 13px; color: #64748b;">اقرأ المقال لمدة 30 ثانية للحصول على المكافأة.</p>
+                        <p style="font-size: 13px; color: #64748b;" data-i18n="click_desc">اقرأ المقال لمدة 30 ثانية للحصول على المكافأة.</p>
                     </div>
-                    <a href="#" class="btn-start" onclick="addPoints(10); alert('تمت زيارة المقال وإضافة النقاط!'); return false;">زيارة الموقع</a>
+                    <a href="#" class="btn-start" onclick="addPoints(10); alert(currentLang==='ar'?'تمت زيارة المقال وإضافة النقاط!':'Article visited and points added!'); return false;" data-i18n="visit_btn">زيارة الموقع</a>
                 </div>
             </div>
         </div>
 
-        <!-- قسم نظام الإحالة (Referral) -->
+        <!-- قسم الإحالة -->
         <div class="referral-box">
-            <h3>🔗 نظام دعوة الأصدقاء (Referral System)</h3>
-            <p style="font-size: 13px; color: #64748b;">شارك رابطك الخاص مع أصدقائك واحصل على 15 نقطة عن كل صديق ينضم للدار!</p>
+            <h3 data-i18n="referral_title">🔗 نظام دعوة الأصدقاء (Referral System)</h3>
+            <p style="font-size: 13px; color: #64748b;" data-i18n="referral_desc">شارك رابطك الخاص مع أصدقائك واحصل على 15 نقطة عن كل صديق ينضم للدار!</p>
             <div class="referral-input-group">
                 <input type="text" id="refLink" value="https://darsofia.github.io/DarSofiaPlatform/register.html?ref=user123" readonly>
-                <button class="btn-copy" onclick="copyRefLink()">نسخ الرابط</button>
+                <button class="btn-copy" onclick="copyRefLink()" data-i18n="copy_btn">نسخ الرابط</button>
             </div>
         </div>
     </div>
 
     <script>
-        // قراءة وبيانات الحساب
+        // قاموس الترجمات (عربي / إنجليزي)
+        const translations = {
+            ar: {
+                brand: "دار صوفيا",
+                logout: "تسجيل الخروج",
+                welcome: "أهلاً بك،",
+                sub_welcome: "مرحباً بك في SofiaHub - استكشف الفرص المتاحة واجمع نقاطك.",
+                points_label: "الرصيد الحرفي",
+                ref_label: "الإحالات",
+                points_unit: "نقطة",
+                streak_title: "🔥 السلسلة اليومية (Daily Streak)",
+                streak_desc: "سجل دخولك يومياً واحصل على مكافأة متزايدة.",
+                hourly_title: "👑 التاج الساعي (Hourly Crown)",
+                hourly_desc: "احصل على نقاط مجانية كل ساعة.",
+                claim_btn: "استلام",
+                tab_all: "الكل",
+                tab_games: "🎮 الألعاب",
+                tab_surveys: "📋 الاستطلاعات",
+                tab_tasks: "⚙️ المهام",
+                tab_offerwalls: "🌐 جدران العروض",
+                tab_clicks: "🖱️ النقاط والزيارات",
+                game_title: "🎮 مغامرة الألغاز",
+                game_desc: "قم بتنزيل اللعبة والوصول للمستوى 5 لتأكيد الإنجاز.",
+                survey_title: "📋 استطلاع التقنية 2026",
+                survey_desc: "أجب عن 6 أسئلة حول استخدامك للتطبيقات الرقمية.",
+                task_title: "📲 تجربة تطبيق صوفيا",
+                task_desc: "اختبر واجهة المستثمر واكتب تقييمك السريع.",
+                offer_title: "🌐 شبكة CPAGrip",
+                offer_badge: "عروض متجددة",
+                offer_desc: "تصفح جدار العروض المعتمد لاستكمال التنزيلات والاستبيانات.",
+                click_title: "🖱️ زيارة مقال تعليمي",
+                click_desc: "اقرأ المقال لمدة 30 ثانية للحصول على المكافأة.",
+                start_btn: "بدء اللعب",
+                open_btn: "فتح جدار العروض",
+                visit_btn: "زيارة الموقع",
+                referral_title: "🔗 نظام دعوة الأصدقاء (Referral System)",
+                referral_desc: "شارك رابطك الخاص مع أصدقائك واحصل على 15 نقطة عن كل صديق ينضم للدار!",
+                copy_btn: "نسخ الرابط"
+            },
+            en: {
+                brand: "Dar Sofia",
+                logout: "Logout",
+                welcome: "Welcome,",
+                sub_welcome: "Welcome to SofiaHub - Explore opportunities and collect your points.",
+                points_label: "Total Balance",
+                ref_label: "Referrals",
+                points_unit: "PTS",
+                streak_title: "🔥 Daily Streak",
+                streak_desc: "Log in daily to claim an increasing reward.",
+                hourly_title: "👑 Hourly Crown",
+                hourly_desc: "Claim free points every hour.",
+                claim_btn: "Claim",
+                tab_all: "All",
+                tab_games: "🎮 Games",
+                tab_surveys: "📋 Surveys",
+                tab_tasks: "⚙️ Tasks",
+                tab_offerwalls: "🌐 Offerwalls",
+                tab_clicks: "🖱️ Clicks",
+                game_title: "🎮 Puzzle Adventure",
+                game_desc: "Download the game and reach level 5 to confirm achievement.",
+                survey_title: "📋 Tech Survey 2026",
+                survey_desc: "Answer 6 questions about your digital app usage.",
+                task_title: "📲 Sofia App Test",
+                task_desc: "Test the user interface and write your quick feedback.",
+                offer_title: "🌐 CPAGrip Network",
+                offer_badge: "Dynamic Offers",
+                offer_desc: "Browse approved offerwall to complete downloads and surveys.",
+                click_title: "🖱️ Read Tutorial Article",
+                click_desc: "Read the article for 30 seconds to claim your reward.",
+                start_btn: "Start Playing",
+                open_btn: "Open Offerwall",
+                visit_btn: "Visit Site",
+                referral_title: "🔗 Referral System",
+                referral_desc: "Share your referral link with friends and get 15 points per signup!",
+                copy_btn: "Copy Link"
+            }
+        };
+
+        let currentLang = localStorage.getItem('sofia_lang') || 'ar';
+
         window.onload = function() {
             let savedName = localStorage.getItem('sofia_username');
             let savedPoints = localStorage.getItem('sofia_points');
@@ -432,7 +531,7 @@
                 document.getElementById('userName').innerText = savedName;
                 document.getElementById('refLink').value = "https://darsofia.github.io/DarSofiaPlatform/register.html?ref=" + encodeURIComponent(savedName);
             } else {
-                document.getElementById('userName').innerText = "زائر دار صوفيا";
+                document.getElementById('userName').innerText = currentLang === 'ar' ? "زائر دار صوفيا" : "Sofia Guest";
             }
 
             if (savedPoints) {
@@ -440,9 +539,33 @@
             } else {
                 localStorage.setItem('sofia_points', 50);
             }
+
+            applyLanguage(currentLang);
         };
 
-        // زيادة النقاط
+        function applyLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('sofia_lang', lang);
+            
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            
+            const btn = document.getElementById('langToggleBtn');
+            if (btn) btn.innerText = lang === 'ar' ? 'English 🌐' : 'عربي 🌐';
+
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    element.innerText = translations[lang][key];
+                }
+            });
+        }
+
+        function toggleLanguage() {
+            const newLang = currentLang === 'ar' ? 'en' : 'ar';
+            applyLanguage(newLang);
+        }
+
         function addPoints(pts) {
             let currentPoints = parseInt(localStorage.getItem('sofia_points') || 50);
             let newPoints = currentPoints + pts;
@@ -450,42 +573,38 @@
             document.getElementById('userPoints').innerText = newPoints;
         }
 
-        // السلسلة اليومية
         function claimDailyStreak() {
             let lastClaim = localStorage.getItem('sofia_daily_claim');
             let today = new Date().toDateString();
 
             if (lastClaim === today) {
-                alert('لقد استلمت مكافأتك اليومية بالفعل! عد غداً للحصول على المزيد.');
+                alert(currentLang === 'ar' ? 'لقد استلمت مكافأتك اليومية بالفعل! عد غداً.' : 'You have already claimed your daily reward! Come back tomorrow.');
             } else {
                 localStorage.setItem('sofia_daily_claim', today);
                 addPoints(10);
-                alert('🎉 تهانينا! حصلت على +10 نقاط من السلسلة اليومية.');
+                alert(currentLang === 'ar' ? '🎉 تهانينا! حصلت على +10 نقاط.' : '🎉 Congratulations! You received +10 points.');
             }
         }
 
-        // التاج الساعي
         function claimHourly() {
             addPoints(5);
-            alert('👑 تم استلام +5 نقاط من التاج الساعي!');
+            alert(currentLang === 'ar' ? '👑 تم استلام +5 نقاط من التاج الساعي!' : '👑 Claimed +5 points from Hourly Crown!');
         }
 
-        // نسخ رابط الإحالة
         function copyRefLink() {
             let copyText = document.getElementById("refLink");
             copyText.select();
             copyText.setSelectionRange(0, 99999);
             navigator.clipboard.writeText(copyText.value);
-            alert("تم نسخ رابط الإحالة الخاص بك بنجاح!");
+            alert(currentLang === 'ar' ? "تم نسخ رابط الإحالة بنجاح!" : "Referral link copied successfully!");
         }
 
-        // التنقل بين التبويبات
-        function switchTab(tabName) {
+        function switchTab(tabName, btnElement) {
             let tabs = document.querySelectorAll('.tab-btn');
             let contents = document.querySelectorAll('.tab-content');
 
             tabs.forEach(tab => tab.classList.remove('active'));
-            event.target.classList.add('active');
+            btnElement.classList.add('active');
 
             if (tabName === 'all') {
                 contents.forEach(content => content.style.display = 'grid');
